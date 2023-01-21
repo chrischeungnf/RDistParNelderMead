@@ -10,7 +10,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-List RDistParNelderMead(NumericVector par, Function fn, List fn_arg, int max_iterations=-1) {
+List RDistParNelderMead(NumericVector par, Function fn, List fn_arg=R_NilValue, int max_iterations=-1) {
   int mpi_inited;
   // Initialize the MPI environment
   MPI_Initialized(&mpi_inited);
@@ -24,6 +24,9 @@ List RDistParNelderMead(NumericVector par, Function fn, List fn_arg, int max_ite
   // Get the rank of the process
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   
+  if(fn_arg.isNULL()) {
+    fn_arg = List::create();
+  }
   DistParNelderMead *solver = new DistParNelderMead(par, &fn, fn_arg, size, rank);
   
   //double t1, t2;
