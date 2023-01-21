@@ -148,6 +148,12 @@ $rank
 For other examples, you can refer to test.R on this repo.
 
 ## Comparison with native R optimization routine optim and parallel L-BFGS-B optimParallel
+### Test environment
+- Computer model: Lenovo ThinkPad L13 Yoga Gen 2a
+- Processor: AMD Ryzen™ 7 PRO 5850U, all 8 CPU cores are used in the tests
+- Memory: 16 GiB
+- Operating system: Ubuntu 22.10
+
 ### Correctness (correctness.R)
 For the 2 objective functions considered by Lee and Wiswall (2007),
 $$f_1(x) = \sum_{i=1}^n \frac{x_i^2}{n}$$
@@ -503,7 +509,7 @@ As optim using Nelder-Mead method produces incorrect result and optimParallel us
 15      6309        2.076748133 4.256848e+00                    TRUE
 16     10000        5.277940273 1.051560e+01                    TRUE
 ```
-
+![Test S1 plot](S1.png)
 
 ```
 [1] "Test S2 results:"
@@ -526,6 +532,7 @@ As optim using Nelder-Mead method produces incorrect result and optimParallel us
 15      6309        3.241330385 1.289312e+01                    TRUE
 16     10000        7.905520439 2.654753e+01                    TRUE
 ```
+![Test S2 plot](S2.png)
 
 As expected, RDistParNelderMead is slower than optim using L-BFGS-B method for low-dimensional functions due to communication overhead between processors. But, RDistParNelderMead is much faster than optim using L-BFGS-B method when dimension of the function is high enough.
 
