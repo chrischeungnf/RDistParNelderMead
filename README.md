@@ -487,7 +487,7 @@ mpirun noticed that process rank 0 with PID 0 on node cheung-ThinkPad-L13-Yoga-G
 ```
 
 ### Speed (speed.R)
-As optim using Nelder-Mead method produces incorrect result and optimParallel uses too much memory for our problems, we only compare the speed of RDistParNelderMead and optim using L-BFGS-B method:
+As optim using Nelder-Mead method produces incorrect result and optimParallel uses too much memory for our problems, we only compare the speed (in seconds) of RDistParNelderMead and optim using L-BFGS-B method:
 ```
 [1] "Test S1 results:"
 [1] "=============="
@@ -536,7 +536,11 @@ As optim using Nelder-Mead method produces incorrect result and optimParallel us
 
 As expected, RDistParNelderMead is slower than optim using L-BFGS-B method for low-dimensional functions due to communication overhead between processors. But, RDistParNelderMead is much faster than optim using L-BFGS-B method when dimension of the function is high enough.
 
+## Acknowledgement
+I highly appreciate permission from [Prof. Neira](https://sites.google.com/site/julianneira/) to modify the C++ code of his paper with Kyle Klein available at <https://www.dropbox.com/s/z8gpwkszy0u5wz6/Klein_Neira_code.zip>.
+
 ## Citation
+Klein, K., and J. Neira (2014). Nelder-Mead Simplex Optimization Routine for Large-Scale Problems: A Distributed Memory Implementation. *Computational Economics, 43*(4), 447–461. <https://doi.org/10.1007/s10614-013-9377-8>
+
 Lee, D., and M. Wiswall (2007). A parallel implementation of the simplex function minimization routine. *Computational Economics, 30*(2), 171–187. <https://doi.org/10.1007/s10614-007-9094-2>
 
-Klein, K., and J. Neira (2014). Nelder-Mead Simplex Optimization Routine for Large-Scale Problems: A Distributed Memory Implementation. *Computational Economics, 43*(4), 447–461. <https://doi.org/10.1007/s10614-013-9377-8>
