@@ -5,25 +5,25 @@ MPI-Based Distributed Memory Parallel Nelder-Mead Method for R
 This project brings MPI-Based Distributed Memory Parallel Nelder-Mead Method proposed in Klein and Neira (2014) to R users. The problem this project solves is unconstrained minimization for high-dimensional functions.
 
 ## Installation
-The current supported operating system is Linux. The Open MPI library is required for the code. If your operating system is Debian or its derivatives, you can install Open MPI library by:
+The current supported operating system is Linux. The Open MPI and the R devtools library are required:
+
+### Debian or its derivatives, including Ubuntu
 ```
 sudo apt install libopenmpi-dev
-```
-For Fedora/Redhat, you can run:
-```
-sudo dnf install openmpi-devel
-source /etc/profile.d/modules.sh
-module load mpi/openmpi-x86_64
-```
-Then, you can install devtools library on R if you have not already done so. On Debian or its derivatives, you can run:
-```
 sudo apt install r-cran-devtools
 ```
-For Fedora/Redhat, use:
+### Fedora/Redhat
+```
+sudo dnf install openmpi-devel
+echo "module load mpi/openmpi-x86_64" | sudo tee /etc/profile.d/openmpi.sh
+```
+Then, restart the terminal. After that,
 ```
 sudo dnf install R-devtools
 ```
-Finally, you can install RDistParNelderMead library on R using devtools:
+### 
+
+Finally, you can install RDistParNelderMead library on R using devtools (On Fedora/Redhat, use `sudo -i R` to start R for loading Open MPI module):
 ```
 library(devtools)
 install_github("chrischeungnf/RDistParNelderMead")
