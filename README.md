@@ -9,9 +9,19 @@ The current supported operating system is Linux. The Open MPI library is require
 ```
 sudo apt install libopenmpi-dev
 ```
+For Fedora/Redhat, you can run:
+```
+sudo dnf install openmpi-devel
+source /etc/profile.d/modules.sh
+module load mpi/openmpi-x86_64
+```
 Then, you can install devtools library on R if you have not already done so. On Debian or its derivatives, you can run:
 ```
 sudo apt install r-cran-devtools
+```
+For Fedora/Redhat, use:
+```
+sudo dnf install R-devtools
 ```
 Finally, you can install RDistParNelderMead library on R using devtools:
 ```
